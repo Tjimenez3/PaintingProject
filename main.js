@@ -1,4 +1,5 @@
 let color = '#000000';
+let size = 20;
 (function() {
   'use strict';
   buttonStart();
@@ -8,8 +9,29 @@ let color = '#000000';
 
   const tool = new Tool();
   tool.onMouseDown = function(event) {
-    const c = Shape.Circle(event.point, 20);
-    c.fillColor = color;
+    const path = new Path.Circle({
+      center: event.point,
+      radius: size,
+      fillColor: color,
+    });
+  };
+  tool.onMouseDrag = function(event) {
+    console.log('Dragging');
+    const path = new Path.Circle({
+      center: event.point,
+      radius: size,
+      fillColor: color,
+    });
+  };
+
+  const slider = document.getElementById('myRange');
+
+  // Update the current slider value (each time you drag the slider handle)
+  slider.oninput = function() {
+    size = this.value /(2.5);
+    if (size == 0) {
+      size++;
+    }
   };
 
   console.log('main.js loaded');

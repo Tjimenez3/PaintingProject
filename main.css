@@ -54,3 +54,10 @@
   border: 1p;
   padding: 15px 32px;
 }
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
